@@ -157,6 +157,15 @@ namespace ConsoleApp30
             List<Department> qq = new List<Department>();
            double d= razporedurna(aa);
         }
+          List<Department> izpis = new List<Department>();
+            izpis.Add(aa);
+            using (StreamWriter myWriter = new StreamWriter(@"izhod.txt", false))
+            {
+
+                XmlSerializer mySerializer = new XmlSerializer(typeof(List<Department>));
+                mySerializer.Serialize(myWriter, izpis);
+
+            }
     }
    
     public enum tipDela
@@ -183,5 +192,7 @@ namespace ConsoleApp30
             this.maticna = maticna;
             this.postavka = postavka;
         }
+        
+           
     }
 }
